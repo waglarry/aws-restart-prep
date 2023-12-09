@@ -1,0 +1,24 @@
+#!/bin/bash
+COUNT=1
+echo "What is your name?"
+read NAME
+
+while [ $COUNT -le 25 ]
+do
+	touch "${NAME}${COUNT}.txt"
+	echo "Creating file ${NAME}${COUNT}.txt"
+	((COUNT++))
+done
+
+echo "All files created"
+
+echo "Do you want to delete the empty files (y/n)"
+read RESPONSE
+if [ "${RESPONSE,,}" = "y" ]
+then
+	rm -rf *.txt
+	echo "Empty files deleted"
+else
+	echo "Files maintained"
+fi
+
