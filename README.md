@@ -6,6 +6,8 @@
 
 3. https://www.examtopics.com/exams/amazon/aws-certified-cloud-practitioner-clf-c02/view/4/
 
+4. https://www.awsboy.com/aws-practice-exams/practitioner/
+
 
 ### useful fyi's
 
