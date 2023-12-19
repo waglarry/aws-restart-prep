@@ -10,15 +10,15 @@
 # useful fyi's
 
 - The exam candidate should have AWS knowledge in the following areas:
-• AWS Cloud concepts
-• Security and compliance in the AWS Cloud
-• Core AWS services
-• Economics of the AWS Cloud
+1. AWS Cloud concepts
+2. Security and compliance in the AWS Cloud
+3. Core AWS services
+4. Economics of the AWS Cloud
 
 - The exam has the following content domains and weightings:
-• Domain 1: Cloud Concepts (24% of scored content)
-• Domain 2: Security and Compliance (30% of scored content)
-• Domain 3: Cloud Technology and Services (34% of scored content)
-• Domain 4: Billing, Pricing, and Support (12% of scored content)
+1. Domain 1: Cloud Concepts (24% of scored content)
+2. Domain 2: Security and Compliance (30% of scored content)
+3. Domain 3: Cloud Technology and Services (34% of scored content)
+4. Domain 4: Billing, Pricing, and Support (12% of scored content)
 
 Note: Refer to the exam guide in the "exam-prep" directory for more detail
