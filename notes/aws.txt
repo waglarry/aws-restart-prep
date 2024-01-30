@@ -1,0 +1,65 @@
+One time management strategy I plan to implement is the "Pomodoro Technique," which involves breaking work into focused intervals (typically 25 minutes) followed by short breaks. This strategy will help me to maintain focus during work intervals and also prevents burnout by allowing brief periods of rest. I believe it will be helpful because it encourages my sustained concentration on tasks while ensuring regular breaks to recharge.
+
+Another strategy is that i am going to allocate specific blocks of time for dedicated tasks or categories of work throughout the day. By scheduling focused time for particular activities and minimizing multitasking, I anticipate better focus, improved task completion, and also reduce procrastination. this strategy will enable me to prioritize important tasks and allocate time to them, enhancing efficiency and preventing time wasted on less critical activities.
+
+Both strategies will help to enhance my ability to manage time effectively by providing structured approaches to work. The Pomodoro Technique aids in maintaining focus and preventing fatigue, especially for me who finds it difficult focusing over long periods of time. while Time Blocking allows for intentional allocation of time to essential tasks, minimizing distractions, and maximizing productivity
+
+
+
+Deploy my web application on AWS
+
+Complete AWS re/Start Training:
+
+learn how to configure ec2 instances and s3 buckets for web storage
+
+Learn server-side scripting or backend development
+
+Learn basic web development skills, html css and javascript
+
+Buying myself a computer and finding and dedicated development workspace
+
+Goal is to deploy my web application on aws
+
+1. Click create bucket, choose bucket name, enable public access and other configs before finally creating the bucket
+
+2. Once the bucket has been created, click on it and upload the stuff you wanna upload
+
+3. Go to properties and allow static website hosting, make sure to specify the index and error html files
+
+4. After, go to permissions and generate a bucket policy, make sure to choose s3 bucket policy, and set the principal to "*". also in the actions choose getObject, and the arn name should end with "/*"
+
+5. Then, go ahead to upload your files into the bucket.
+
+Examinable areas
+AMI's and EC2
+Only web servers whose root volumes are an ebs volumes are the only ones you can stop and restart them again
+principles of least privilege
+
+// 28mins on the dot
+
+ ips -- public:34.215.59.138, private:10.0.10.45
+
+50 public, 15000 private
+HOW TO LAUNCH A VPC ON AWS USING THE MANAGEMENT CONSOLE
+
+1. First, create an EIP address, which is a public ipv4 address which you will use to access to the internet
+
+2. Go to the VPC dashboard and click create VPC, choose vpc and more, for a vpc that will need both a private and a public subnet. 
+
+3. For the IPV4 CIDR block choose the default 10.0.0.0/16 which gives 65k ip addresses. Choose 1 availability zone.
+
+4. Go to Customize Subnet CIDR Blocks, where you can customize the CIDR blocks for both the pub and priv subnets
+
+5. For the public subnet's ipv4 cidr block, choose 10.0.1.0/24 which gives 256 ip addresses
+
+6. For the private subnet's ipv4 cidr block, choose 10.0.1.0/24, which creates a different block.
+
+7. Now just click create vpc. Note that if you want your private subnet to access the internet, you need to allocate an EIP to it's NAT gateway, if you created one in step 1. 
+
+VPC Flow Logs - Captures info about whatever is happening inside your own VPC, in terms of IP traffic. VPC peering. Security Groups and Network ACL Differences.
+
+direct connect and side to side vpn - how to connect an on premise data center to a vpc
+
+clooudtrail comes in the exam
+
+aws dms comes in the exam
