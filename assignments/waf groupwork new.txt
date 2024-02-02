@@ -1,0 +1,63 @@
+1. **User Request**:
+   - A user initiates a request by accessing your web application through a web browser or a mobile device.
+
+2. **Route 53**:
+   - The request is first directed to Route 53, AWS's DNS service, which resolves the domain name to the IP address of CloudFront.
+
+3. **CloudFront**:
+   - CloudFront acts as a Content Delivery Network (CDN) and sits at the edge of the AWS network. It serves cached content and accelerates the delivery of static assets (e.g., images, CSS, JavaScript) from edge locations worldwide.
+   - If the requested content is available in the CloudFront cache, it is served directly from the nearest edge location, reducing latency and improving performance.
+   - If the content is not cached or has expired, CloudFront forwards the request to the Web Application Firewall (WAF) for security inspection
+
+4. **Web Application Firewall (WAF)**:
+   - The request passes through the WAF, which inspects and filters incoming traffic to protect your web applications from common web exploits and attacks.
+   - The WAF applies security rules and policies to the request, blocking malicious traffic and allowing legitimate requests to proceed. And then forwards it to the ALB which then distributes them to the instances.
+
+5. **EC2 Instances in Public Subnet**:
+   - After passing through CloudFront and WAF, the request reaches the EC2 instances hosted in the public subnet of your VPC.
+   - These EC2 instances handle various services like orders, reservations, and content management, processing the request and generating a response.
+
+6. **Amazon Aurora in Private Subnet**:
+   - For requests that require accessing backend data stored in Amazon Aurora (e.g., fetching customer information, processing transactions), the EC2 instances in the public subnet interact with Aurora hosted in the private subnet.
+   - The EC2 instances in the public subnet forward database queries to Aurora, which retrieves and returns the requested data.
+
+7. **Lambda Function**:
+   - In parallel, CloudWatch may trigger a scheduled event (e.g., monthly sales report generation) that invokes a Lambda function.
+   - The Lambda function retrieves data from Amazon Aurora, processes it to generate the sales report, and sends the report via Amazon SES to the admin's email address.
+
+The Lambda function is triggered when an order is placed.
+It processes the order information and sends an email notification to the admin using Amazon SES, notifying them of the new order.
+Additionally, the Lambda function processes CloudWatch events triggered by scheduled tasks to generate and send the monthly sales report to the admin's email address.
+
+Your architecture aligns well with several key pillars of the AWS Well-Architected Framework, which provides guidance on building secure, high-performing, resilient, and efficient infrastructure. Let's examine how your architecture aligns with each of these pillars:
+
+Operational Excellence:
+
+Your architecture follows operational best practices by leveraging AWS managed services such as Amazon Aurora, Amazon CloudFront, and AWS Lambda.
+Automation is incorporated through the use of AWS Lambda for processing orders and generating sales reports automatically.
+AWS CloudWatch is used for monitoring application and infrastructure health, enabling proactive incident response and resource optimization.
+Security:
+
+Security best practices are implemented throughout your architecture, including:
+Use of AWS Web Application Firewall (WAF) to protect against common web exploits and attacks.
+Implementation of IAM roles and policies to manage access control and permissions for users and applications.
+Encryption of data in transit and at rest, supported by services like CloudFront, Aurora, and SES.
+The separation of public and private subnets, combined with network access controls, enhances security by limiting exposure of sensitive resources to the internet.
+Reliability:
+
+Your architecture is designed for high availability and fault tolerance:
+Multi-AZ deployment of resources, including EC2 instances, Aurora database, and ALB, ensures resilience to AZ failures.
+Use of AWS services like CloudFront and ALB improves application availability and scalability by distributing traffic across multiple instances and edge locations.
+Automated backups and replication provided by Aurora enhance data durability and disaster recovery capabilities.
+Performance Efficiency:
+
+Your architecture optimizes resource utilization and performance:
+CloudFront improves content delivery speed and reduces latency by caching static assets at edge locations.
+ALB intelligently distributes traffic to EC2 instances, ensuring efficient use of compute resources and scaling to meet demand.
+Amazon Aurora provides high-performance, scalable database storage for structured data, supporting fast data retrieval and processing.
+Cost Optimization:
+
+Your architecture optimizes costs through several strategies:
+Use of serverless computing with AWS Lambda eliminates the need to provision and manage servers, reducing operational overhead and costs.
+Pay-as-you-go pricing model for AWS services enables cost control and scalability, ensuring resources are only used when needed.
+Regular monitoring and optimization of resource usage using AWS CloudWatch and cost analysis tools help identify cost-saving opportunities and optimize spending.
