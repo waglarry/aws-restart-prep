@@ -8,6 +8,10 @@
 
 4. https://www.awsboy.com/aws-practice-exams/practitioner/
 
+5. https://learn.digitalcloud.training/course/free-aws-certified-cloud-practitioner-practice-exam?/
+
+6. 
+
 
 ### useful fyi's
 
