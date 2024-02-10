@@ -10,7 +10,7 @@
 
 5. https://learn.digitalcloud.training/course/free-aws-certified-cloud-practitioner-practice-exam?/
 
-6. 
+6. https://github.com/kananinirav/AWS-Certified-Cloud-Practitioner-Notes/blob/master/practice-exam/exams.md
 
 
 ### useful fyi's
@@ -27,4 +27,4 @@
 3. Domain 3: Cloud Technology and Services (34% of scored content)
 4. Domain 4: Billing, Pricing, and Support (12% of scored content)
 
-Note: Refer to the exam guide in the "exam-prep" directory for more detail
+### Note: Refer to the exam guide in the "exam-prep" directory for more detail
